@@ -1,4 +1,4 @@
-# The Only File You Need to Quickly Get Started With OLED displays and a multiplexer!
+# The Only File You Need to Quickly Get Started With OLED Displays and a Multiplexer!
 This file contains code that claims to be for Arduino, however, this code is uniform in that it functions for other boards in addition to Arduino. I.E, this code file can run ESP32 boards, Seeed Studio XIAO ESP32-C3 boards, and Arduino Nano!\
 
 I've tested this code recently and it's functioning as it should. If you have any questions or would like to view an example of this working, watch this [video tutorial here](https://youtu.be/MO6hbQcX8fE?si=GFrEsCN-FYgjShPb). 
