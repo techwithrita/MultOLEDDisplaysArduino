@@ -135,9 +135,11 @@ void loop()
   oled.clearDisplay();
   oled.setTextColor(WHITE);
   oled.setCursor(24,0);
-  //oled.println("Let's build \n cool stuff \n together!");
+  oled.println("Let's build \n cool stuff \n together!");
   oled.setTextSize(1);
   oled.display();
+
+  tcaselect(2); // text to OLED display 3
   // Clear the buffer
   oled.clearDisplay();
   testdrawtriangle(); //draw triangles (outlines)
