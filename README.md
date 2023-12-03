@@ -9,3 +9,4 @@ Arduino IDE (.ino files) for multiple OLED displays. Easily understood, simple C
 
 # If You Don't Use A Multiplexer, or Want Code For Mult. OLEDs Without It:
 The "TwoOLEDsESP32C3.ino" file is for you! It allows you to use two OLED displays without a multiplexer (so long as each display is given a different address physically by resoldering the addressing resistor / soldering jumpers on the back of the OLED display) i.e. 0x78 and 0x7A
+**may only work with Seeed Studio XIAO ESP32-C3** further testing is needed
