@@ -1,5 +1,5 @@
 /**
- *  TCA9548A I2c Multiplexer Sketch for 4 OLED display's
+ *  TCA9548A I2c Multiplexer Sketch for any number of OLED displays! (currently code is for 3 displays)
  *  Original sketch by E.Heideveld 14-12-2018
  *  Edits by TechWithRita
  *  >>>To add more OLED displays, just add another tcaselect(#) 
