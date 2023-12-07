@@ -1,4 +1,5 @@
-// LEONARDO - TWO I2C OLEDS
+//Original code by 'Mark's Bench' (Mark) <<minor tweaked edits by TechWithRita>>
+//LEONARDO - TWO I2C OLEDS
 // Using two displays: the 128x64 SH1106 OLED (0x3C/0x78), and the 128x32 SSD1306
 // (0x3D/0x7A).
 // The 128x64 display will be DISPA, the 128x32 display will be DISPB.
@@ -20,9 +21,9 @@
 // call it DISPA. See https://github.com/olikraus/u8g2/wiki/u8g2setupcpp for other
 // drivers. There are lots of different OLED board configurations out there!
 U8G2_SSD1306_128X64_NONAME_F_HW_I2C DISPA(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
-                                                                              
+U8G2_SSD1306_128X64_NONAME_F_HW_I2C DISPB(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);                                                                              
 // Select constructor for this particular 128x32 OLED display, call it DISPB.                                                                               
-U8G2_SSD1306_128X32_UNIVISION_F_HW_I2C DISPB(U8G2_R0, U8X8_PIN_NONE);
+//U8G2_SSD1306_128X32_UNIVISION_F_HW_I2C DISPB(U8G2_R0, U8X8_PIN_NONE);
 
 // Set aliases for the I2C pins. They're broken out on the Leonardo but I'm using
 // the numbered pins so it's seamless with other boards like the Pro Micro.
@@ -63,7 +64,7 @@ void setup() {
   // you can change them throughout the program, too. 
   // Check https://github.com/olikraus/u8g2/wiki for others, there are LOTS.
   DISPA.setFont(u8g2_font_logisoso30_tf );
-  DISPB.setFont(u8g2_font_logisoso30_tf );
+  DISPB.setFont(u8g2_font_logisoso16_tf );
 
   // Let's put some writing on DISPA. Make sure the display buffer is clear before
   // writing or drawing anything.
@@ -75,7 +76,6 @@ void setup() {
   // as large as how many pixels tall your font is.
   // If your display shows nothing, make sure you have set the y-value or everything
   // will end up being drawn beyond the edges of the display...
-  DISPA.setCursor(0, 32); 
   
   // This just puts Howdy! in the selected font in the buffer. Nothing gets written
   // to the screen yet. You could move the cursor position again and write more text
@@ -83,44 +83,26 @@ void setup() {
   // setting bits that will turn on the associated pixels.
   // See https://github.com/olikraus/u8g2/wiki/u8g2reference to find out how to
   // draw shapes and lines or even set individual pixels.
-  DISPA.print("Howdy!");  
-
-  // Take whatever's been written or drawn in the buffer and send it to the display.
-  DISPA.sendBuffer(); 
 
   // Now, do the same thing for DISPB.
-  DISPB.clearBuffer();  
-  DISPB.setCursor(0, 31);
-  DISPB.print("Hi!");
-  DISPB.sendBuffer();
-
-  delay(2000);  // Wait two seconds to admire the displays before moving on.
+  DISPB.clearBuffer(); 
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
-  // All this code does is say "HELLO" and show a count up on DISPA, while 
-  // counting down on DISPB.
-
-  byte CountUp = 0;
-  while (CountUp <= 255) {
     //Display #1 or A (DISPA)
     DISPA.clearBuffer();
     DISPA.setCursor(0, 31);
-    DISPA.print("HELLO");
+    DISPA.print("Display");
     DISPA.setCursor(40, 63);
-    DISPA.print(CountUp);
+    DISPA.print("A");
     DISPA.sendBuffer();
     
     //Display #2 or B (DISPB)
     DISPB.clearBuffer();
-    DISPB.setCursor(40, 31);
-    DISPB.print(255 - CountUp);
+    DISPB.setCursor(0, 31);
+    DISPB.print("Display");
+    DISPB.setCursor(40, 63);
+    DISPB.print("B");
     DISPB.sendBuffer();
-    CountUp = CountUp + 1;
-    delay(100);
-  }
-  delay(500);  // Wait 500ms and do it again.
 }
