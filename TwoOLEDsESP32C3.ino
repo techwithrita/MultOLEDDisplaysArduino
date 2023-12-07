@@ -64,7 +64,7 @@ void setup() {
   // you can change them throughout the program, too. 
   // Check https://github.com/olikraus/u8g2/wiki for others, there are LOTS.
   DISPA.setFont(u8g2_font_logisoso30_tf );
-  DISPB.setFont(u8g2_font_logisoso16_tf );
+  DISPB.setFont(u8g2_font_logisoso16_tf ); //smaller font to show difference
 
   // Let's put some writing on DISPA. Make sure the display buffer is clear before
   // writing or drawing anything.
